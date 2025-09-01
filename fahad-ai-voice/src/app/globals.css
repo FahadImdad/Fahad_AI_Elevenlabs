@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .pulse-animation {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+  
+  .glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .equalizer-bar {
+    animation: equalizer 1.5s ease-in-out infinite;
+  }
+  
+  .equalizer-bar:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .equalizer-bar:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  .equalizer-bar:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  
+  .equalizer-bar:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes equalizer {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 20px;
+  }
+}
+
+/* Hide cursor during active session */
+.session-active {
+  cursor: none;
+}
+
+/* Custom scrollbar for sources */
+.sources-scroll::-webkit-scrollbar {
+  width: 2px;
+}
+
+.sources-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sources-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+}
